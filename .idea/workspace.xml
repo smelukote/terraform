@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8a54eab-f72a-4e0d-98f4-d6ff6b0051d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/terraform-dev.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e8a54eab-f72a-4e0d-98f4-d6ff6b0051d5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +67,11 @@
               <item name="terraform-dev" type="b2602c69:ProjectViewProjectNode" />
               <item name="terraform-dev" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="terraform-dev" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terraform-dev" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -81,7 +79,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571353032280" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571354158993" />
     <property name="last_opened_file_path" value="$USER_HOME$/terraform/base/terraform-gcp-compute" />
   </component>
   <component name="RunDashboard">
@@ -111,7 +109,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1694" height="1017" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
