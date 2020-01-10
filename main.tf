@@ -1,58 +1,50 @@
+provider "google" {
+  version = "~> 2.0, >= 2.5.1"
+  alias   = "tokengen"
+}
+
+data "google_client_config" "default" {
+  provider = "google.tokengen"
+}
+
+data "google_service_account_access_token" "sa" {
+  provider               = "google.tokengen"
+  target_service_account = "${var.terraform_service_account}"
+  lifetime               = "1200s"
+
+  scopes = [
+    "https://www.googleapis.com/auth/cloud-platform",
+  ]
+}
+
+/******************************************
+  GA Provider configuration
+ *****************************************/
+provider "google" {
+  version       = "~> 2.0, >= 2.5.1"
+  access_token  = "${data.google_service_account_access_token.sa.access_token}"
+  project       = "${var.project_id}"
+  region        = "${var.region}"
+}
+
+/******************************************
+  Beta Provider configuration
+ *****************************************/
+provider "google-beta" {
+  version       = "~> 2.0, >= 2.5.1"
+  access_token  = "${data.google_service_account_access_token.sa.access_token}"
+  project       = "${var.project_id}"
+  region        = "${var.region}"
+}
+
+/******************************************
+  Provider backend store
+  You must set the local application credentials using :
+  gcloud auth application-default login
+ *****************************************/
 terraform {
   backend "gcs" {
-    bucket = "smelukote-terraform-admin"
-    prefix = "terraform/state"
+    bucket = "jenkins-123-terraform-state"
+    prefix = "jenkins-123-terraform"
   }
 }
-# Top-level folder under an organization.
-resource "google_folder" "engineering" {
-  display_name = "Engineering"
-  parent       = "organizations/1098004547417"
-}
-
-resource "google_project" "example-dev" {
-  name       = "Example dev Project"
-  project_id = "example-dev-1234"
-  folder_id  = "${google_folder.engineering.name}"
-  billing_account = "019AA3-F19454-3C55A7"
-}
-
-resource "google_compute_instance" "instance_a" {
-  name         = "dev-instance"
-  machine_type = "n1-standard-1"
-  zone         = "us-central1-a"
-
-  tags = ["dev", "bar"]
-
-  boot_disk {
-    initialize_params {
-      image = "debian-cloud/debian-9"
-    }
-  }
-
-  // Local SSD disk
-  scratch_disk {
-  }
-
-  network_interface {
-    network = "default"
-
-    access_config {
-      // Ephemeral IP
-    }
-  }
-
-  metadata {
-    "dev" = "bar"
-  }
-
-  metadata_startup_script = "echo hi > /test.txt"
-
-  service_account {
-    scopes = ["userinfo-email", "compute-ro", "storage-ro"]
-  }
-}
-
-
-
-

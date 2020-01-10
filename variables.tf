@@ -13,18 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-variable "credentials" {
-  description = "The credentials to access project"
-  default = ""
-}
-variable "project_name" {}
-variable "billing_account" {}
-variable "org_id" {}
-variable "region" {}
-
-provider "google" {
-  region = "${var.region}"
+variable "project_id" {
+  description = "The project id"
+  default     =  "jenkins-123-264620"
 }
 
+variable "machine_type" {
+  description = "The machine type to create"
+  default = "f1-micro"
+}
 
+variable "zones" {
+  type   = "list"
+  description = "List of zones with in the region to deply the instances in"
+  default = ["us-central1-a"]
+}
 
+variable "region" {
+  type   = "string"
+  description = "List of regions to deploy the instances in"
+  default = "us-central1"
+}
+
+variable "boot_disk_size" {
+  description = "The boot disck size to create"
+  default = "10"
+}
+variable "terraform_service_account" {
+  description = "terraform SA for creating jumpbox"
+  default = "terraform-service-account@jenkins-123-264620.iam.gserviceaccount.com"
+}
