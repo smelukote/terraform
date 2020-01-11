@@ -14,17 +14,17 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                sh 'rm -r *;git clone https://github.com/smelukote/terraform.git'
+                sh 'sudo rm -r *;git clone https://github.com/smelukote/terraform.git'
             }
         }
         stage('terraform init') {
             steps {
-                sudo sh '/home/jenkins/terraform init ./terraform '
+                sh 'sudo /home/jenkins/terraform init ./terraform '
             }
         }
         stage('terraform plan') {
             steps {
-               sudo  sh '/home/jenkins/terraform  plan ./terraform '
+               sh 'sudo /home/jenkins/terraform  plan ./terraform '
             }
         }
         stage('terraform ended') {
