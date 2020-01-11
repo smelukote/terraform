@@ -24,7 +24,7 @@ pipeline {
         }
         stage('terraform plan') {
             steps {
-                sh '/var/jenkins_home/workspace/terraform-pipiline_master/terraform/terraform plan'
+                sh '/var/jenkins_home/workspace/terraform plan ./terraform '
             }
         }
         stage('terraform ended') {
