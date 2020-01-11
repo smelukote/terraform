@@ -2,10 +2,14 @@ pipeline {
     agent any
 
     stages {
-       stage('init') {
+        stage('init') {
             steps {
-                sh 'terraform init'
-                 }
-              }
-     
+                /* `make check` returns non-zero on test failures,
+                * using `true` to allow the Pipeline to continue nonetheless
+                */
+                sh 'terraform init' 
+                
+            }
+        }
+    }
 }
