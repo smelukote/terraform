@@ -5,10 +5,11 @@ pipeline {
        stage('init') {
             steps {
                 echo 'Building..'
-                {
+                node {
+                 {
                     sh 'terraform init'
-                }
-            }
+                 }
+              }
         }
         stage('Test') {
             steps {
