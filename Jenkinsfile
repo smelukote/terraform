@@ -5,6 +5,7 @@ try {
       checkout scm
     }
   }
+}
    // Run terraform init
   stage('init') {
     node {
@@ -40,9 +41,7 @@ try {
             sh 'terraform show'
           }
         }
-      }
     }
-  }
   currentBuild.result = 'SUCCESS'
 }
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
