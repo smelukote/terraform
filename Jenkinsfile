@@ -2,16 +2,7 @@ pipeline {
     agent any
 
     stages {
-       stage('checkout') {
-            steps {
-                echo 'Cleaning..'
-                node {
-                cleanWs()
-                checkout scm
-                }
-            }
-        }
-        stage('Build') {
+       stage('Build') {
             steps {
                 echo 'Building..'
             }
