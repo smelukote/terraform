@@ -19,7 +19,7 @@ pipeline {
         }
         stage('terraform init') {
             steps {
-                sh '/var/jenkins_home/workspace/terraform-pipiline_master/terraform/terraform init'
+                sh '/var/jenkins_home/workspace/terraform ./terraform-pipiline_master/terraform init'
             }
         }
         stage('terraform plan') {
